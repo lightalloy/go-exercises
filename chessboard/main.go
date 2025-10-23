@@ -8,36 +8,41 @@ import (
 
 func main() {
 	var width int
-	fmt.Print("Введите ширину: ")
-	_, err := fmt.Scanf("%d", &width)
-	if err != nil {
-		fmt.Println("Ошибка ввода:", err)
-		return
-	}
-
-	if width < 0 || width > 1000 {
-		fmt.Println("width must be > 0 and <= 1000")
-		return
-	}
-
 	var length int
-	fmt.Print("Введите высоту: ")
-	_, err = fmt.Scanf("%d", &length)
+	var err error
+
+	width, err = getValueFromUser("width")
 	if err != nil {
-		fmt.Println("Ошибка ввода:", err)
+		fmt.Println(err)
 		return
 	}
 
-	if length < 0 || length > 1000 {
-		fmt.Println("length must be > 0 and <= 1000")
+	length, err = getValueFromUser("length")
+	if err != nil {
+		fmt.Println(err)
 		return
 	}
 
-	fmt.Printf("Chessboard for %dx%d\n", width, length)
+	fmt.Printf("Chessboard for %dx%d:\n\n", width, length)
 
 	board, err := chessboard.Get(width, length)
 	if err != nil {
 		fmt.Print(err.Error())
 	}
 	fmt.Println(board)
+}
+
+func getValueFromUser(dimension string) (int, error) {
+	var value int
+
+	fmt.Printf("%s: ", dimension)
+	_, err := fmt.Scanf("%d", &value)
+	if err != nil {
+		return 0, err
+	}
+
+	if value < 0 || value > 1000 {
+		return 0, fmt.Errorf("%s must be > 0 and <= 1000", dimension)
+	}
+	return value, nil
 }

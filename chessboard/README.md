@@ -1,9 +1,28 @@
 # Chessboard
 
-Display sample chessboard:
+Use app:
 
 ```bash
 go run main.go
+```
+
+```
+width: 30
+length: 12
+Chessboard for 30x12:
+
+# # # # # # # # # # # # # # # 
+ # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # 
+ # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # 
+ # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # 
+ # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # 
+ # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # 
+ # # # # # # # # # # # # # # #
 ```
 
 Run tests:
@@ -12,6 +31,7 @@ Run tests:
 cd chessboard
 go test
 ```
+
 
 Use package in your code:
 
