@@ -14,7 +14,11 @@ func main() {
 		fmt.Println("Ошибка ввода:", err)
 		return
 	}
-	fmt.Printf("width: %d\n", width)
+
+	if width < 0 || width > 1000 {
+		fmt.Println("width must be > 0 and <= 1000")
+		return
+	}
 
 	var length int
 	fmt.Print("Введите высоту: ")
@@ -23,7 +27,13 @@ func main() {
 		fmt.Println("Ошибка ввода:", err)
 		return
 	}
-	fmt.Printf("Printing chessboard for	 %dx%d\n", width, length)
+
+	if length < 0 || length > 1000 {
+		fmt.Println("length must be > 0 and <= 1000")
+		return
+	}
+
+	fmt.Printf("Chessboard for %dx%d\n", width, length)
 
 	board, err := chessboard.Get(width, length)
 	if err != nil {

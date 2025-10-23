@@ -6,10 +6,10 @@ import "fmt"
 // Get returns a chessboard of the given width and length.
 func Get(width int, length int) (string, error) {
 	if width < 0 || width > 1000 {
-		return "", fmt.Errorf("width must be greater > 0 and <= 1000")
+		return "", fmt.Errorf("width must be > 0 and <= 1000")
 	}
 	if length < 0 || length > 1000 {
-		return "", fmt.Errorf("length must be greater > 0 and <= 1000")
+		return "", fmt.Errorf("length must be > 0 and <= 1000")
 	}
 
 	board := ""
